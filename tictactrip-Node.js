@@ -3,7 +3,7 @@ const url = require('url');
 const fs = require('fs');
 const jwt = require('jsonwebtoken');
 const jwtKey = "token_key";
-const jwtExpirySeconds = 300;
+const jwtExpirySeconds = 24*3600;
 
 // Parameters
 const numberOfCharacterPerLine = 80;
