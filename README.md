@@ -1,3 +1,4 @@
 - API REST qui justifie un texte passé en paramètre.
 - Mécanisme d’authentification via token unique
 - Rate limit par token pour l’endpoint /api/justify, fixé à 80 000 mots
+- Server running at http://127.0.0.1:1337/
