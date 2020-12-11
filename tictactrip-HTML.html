@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<title>Exo Back Tictactrip</title>
+<meta charset='utf-8'>
+
+
+<style>
+*{font-family: "Courier New";}
+</style>
+
+<div>
+	<input type="email" id="inputEmail" value="nom@domaine.com"/>
+	<input type="button" id="btnAuth" value="Authentification" onclick="authToken()"/>
+</div>
+<textarea id="text" placeholder="Veuillez entrer un texte à justifier" style="width: 70vw; height: 30vh; margin-top: 5vh;"></textarea>
+<input type="button" id="btn" value="Valider" onclick="valid()"/>
+<h3 style="padding-top: 2%;"> Texte justifié de 80 caractères de long : </h3>
+<h4> Nombre de mots traités pour l'utilisateur :<div id="nbWords"></div>/80 000</h4>
+<div id="result" style="padding-left: 5%;"></div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+	function authToken(){
+		$.get("/api/token", {email:$('#inputEmail').val()},function(data) {}, 'json');
+	}
+
+	function valid(){
+		$.get("/api/justify", {"input":$('#text').val()},function(data) {$('#result').html(data.justifiedText); $('#nbWords').html(data.numberOfWords)}, 'json');
+	}
+</script>
